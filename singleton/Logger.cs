@@ -2,8 +2,8 @@ using System;
 
 namespace singleton {
   // So, here's my singleton class for logging pressed keys
-  // In general, it's pretty basic, but I ised lazy instance initialization for 2 reasons
-  // 1) It takes less computing resources, cause the logger creates
+  // In general, it's pretty basic, but I ised lazy instance initialization for 2 reasons:
+  // 1) It takes less computing resources, cause the logger is created
   // right after the 1st GetInstance() call, not during the compilation
   // 2) It's thread-safe, so multiple threads can work with this logger
   class Logger {
