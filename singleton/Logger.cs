@@ -1,6 +1,11 @@
 using System;
 
 namespace singleton {
+  // So, here's my singleton class for logging pressed keys
+  // In general, it's pretty basic, but I ised lazy instance initialization for 2 reasons
+  // 1) It takes less computing resources, cause the logger creates
+  // right after the 1st GetInstance() call, not during the compilation
+  // 2) It's thread-safe, so multiple threads can work with this logger
   class Logger {
     // private constructor, so you can't create a new instance
     private Logger () { }
@@ -10,7 +15,8 @@ namespace singleton {
     // the method to get the only instance (and create it if there's no one)
     public static Logger GetInstance () {
       if (_instance == null) {
-        _instance = new Logger ();
+        Lazy<Logger> lazy = new Lazy<Logger> (() => new Logger ());
+        _instance = lazy.Value;
       }
 
       return _instance;
