@@ -1,11 +1,29 @@
 import React from "react";
+import Cell from "../cell/Cell";
 import "./Map.css";
-import Map from "./Map";
+import MapModel from "./MapModel";
 
-function MapModel() {
-  const map = new Map();
+function Map() {
+  const map: MapModel = new MapModel();
+  const cells: Array<JSX.Element> = new Array<JSX.Element>();
 
-  return <div className="map"></div>;
+  for (let row = 0; row < map.height; row++) {
+    for (let column = 0; column < map.width; column++) {
+      cells.push(<Cell row={row} column={column} />);
+    }
+  }
+
+  return (
+    <div
+      className="map"
+      style={{
+        gridTemplateColumns: `repeat(${map.width}, auto)`,
+        gridTemplateRows: `repeat(${map.height}, auto)`,
+      }}
+    >
+      {cells}
+    </div>
+  );
 }
 
-export default MapModel;
+export default Map;
