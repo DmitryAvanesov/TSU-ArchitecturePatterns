@@ -13,9 +13,9 @@ function Cell(props: IProps) {
   return (
     <div
       className={`cell ${
-        (cell.row + cell.column) % 2 === 0 ? "triangle-down" : "triangle-up"
+        (cell.row + cell.column) % 2 === 0 ? "trapezoid-down" : "trapezoid-up"
       }`}
-      style={{ right: `${cell.column * 10}px` }}
+      style={{ right: `${cell.column * 2.5}px` }}
     ></div>
   );
 }
