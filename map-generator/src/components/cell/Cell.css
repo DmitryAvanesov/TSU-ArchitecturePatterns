@@ -1,5 +1,12 @@
 .cell {
   width: 10px;
   height: 10px;
-  background-color: #aed581;
+}
+
+.flat {
+  background-color:#dcedc8;
+}
+
+.lake {
+  background-color: #bbdefb;
 }

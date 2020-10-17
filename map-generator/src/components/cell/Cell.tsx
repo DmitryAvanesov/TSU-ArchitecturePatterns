@@ -18,7 +18,7 @@ function Cell(props: IProps) {
 
   const cell: CellModel = builder.getCellModel();
 
-  return <div className={`cell`}></div>;
+  return <div className={`cell ${cell.type}`}></div>;
 }
 
 export default Cell;

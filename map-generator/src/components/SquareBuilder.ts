@@ -17,7 +17,7 @@ export default class SquareBuilder implements Builder {
   }
 
   public produceType(): void {
-    this.cellModel.type = "flat";
+    this.cellModel.type = Math.random() < 0.0001 ? "lake" : "flat";
   }
 
   public getCellModel(): CellModel {
