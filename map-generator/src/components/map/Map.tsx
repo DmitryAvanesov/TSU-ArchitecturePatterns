@@ -9,7 +9,7 @@ function Map() {
 
   for (let row = 0; row < map.height; row++) {
     for (let column = 0; column < map.width; column++) {
-      cells.push(<Cell row={row} column={column} />);
+      cells.push(<Cell key={`${row}:${column}`} row={row} column={column} />);
     }
   }
 

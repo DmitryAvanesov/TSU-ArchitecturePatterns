@@ -3,7 +3,7 @@ export default class MapModel {
   height: number;
 
   constructor() {
-    this.width = 150;
-    this.height = 100;
+    this.width = 300;
+    this.height = 150;
   }
 }

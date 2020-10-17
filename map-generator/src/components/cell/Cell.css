@@ -1,15 +1,5 @@
 .cell {
-  border-left: 2.5px solid transparent;
-  border-right: 2.5px solid transparent;
-  height: 0;
   width: 10px;
-  position: relative;
-}
-
-.trapezoid-down {
-  border-top: 10px solid #aed581;
-}
-
-.trapezoid-up {
-  border-bottom: 10px solid #aed581;
+  height: 10px;
+  background-color: #aed581;
 }

@@ -1,4 +1,6 @@
 import React from "react";
+import Director from "../Director";
+import SquareBuilder from "../SquareBuilder";
 import "./Cell.css";
 import CellModel from "./CellModel";
 
@@ -8,16 +10,15 @@ interface IProps {
 }
 
 function Cell(props: IProps) {
-  const cell: CellModel = new CellModel(props.row, props.column);
+  const director: Director = Director.getInstance();
+  const builder: SquareBuilder = new SquareBuilder();
 
-  return (
-    <div
-      className={`cell ${
-        (cell.row + cell.column) % 2 === 0 ? "trapezoid-down" : "trapezoid-up"
-      }`}
-      style={{ right: `${cell.column * 2.5}px` }}
-    ></div>
-  );
+  director.setBuilder(builder);
+  director.buildCellModel(props.row, props.column);
+
+  const cell: CellModel = builder.getCellModel();
+
+  return <div className={`cell`}></div>;
 }
 
 export default Cell;
