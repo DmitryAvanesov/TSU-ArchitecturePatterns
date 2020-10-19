@@ -6,6 +6,7 @@ export default class SquareBuilder implements Builder {
 
   constructor() {
     this.cellModel = new CellModel();
+    this.cellModel.shape = "square";
   }
 
   public produceRow(row: number): void {
@@ -23,6 +24,7 @@ export default class SquareBuilder implements Builder {
   public getCellModel(): CellModel {
     const result = this.cellModel;
     this.cellModel = new CellModel();
+    this.cellModel.shape = "square";
     return result;
   }
 }

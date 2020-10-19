@@ -7,10 +7,13 @@ function Map() {
   const map: MapModel = new MapModel();
   const cells: Array<JSX.Element> = new Array<JSX.Element>();
 
-  for (let row = 0; row < map.height; row++) {
-    for (let column = 0; column < map.width; column++) {
-      cells.push(<Cell key={`${row}:${column}`} row={row} column={column} />);
-    }
+  for (let index = 0; index < map.cells.length; index++) {
+    cells.push(
+      <Cell
+        key={`${map.cells[index].row}:${map.cells[index].column}`}
+        cell={map.cells[index]}
+      />
+    );
   }
 
   return (

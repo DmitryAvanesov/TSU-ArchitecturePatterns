@@ -5,20 +5,12 @@ import "./Cell.css";
 import CellModel from "./CellModel";
 
 interface IProps {
-  row: number;
-  column: number;
+  cell: CellModel;
 }
 
 function Cell(props: IProps) {
-  const director: Director = Director.getInstance();
-  const builder: SquareBuilder = new SquareBuilder();
-
-  director.setBuilder(builder);
-  director.buildCellModel(props.row, props.column);
-
-  const cell: CellModel = builder.getCellModel();
-
-  return <div className={`cell ${cell.type}`}></div>;
+  const { cell } = props;
+  return <div className={`${cell.type} ${cell.shape}`}></div>;
 }
 
 export default Cell;
