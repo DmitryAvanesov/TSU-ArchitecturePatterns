@@ -1,16 +1,18 @@
+import Director from "../builder/Director";
+import SquareBuilder from "../builder/SquareBuilder";
+import Cell from "../cell/Cell";
 import CellModel from "../cell/CellModel";
-import Director from "../Director";
-import SquareBuilder from "../SquareBuilder";
+import CellsCollection from "../iterator/CellsCollection";
 
 export default class MapModel {
   width: number;
   height: number;
-  cells: CellModel[];
+  cells: CellsCollection;
 
   constructor() {
     this.width = 300;
     this.height = 150;
-    this.cells = [];
+    this.cells = new CellsCollection();
 
     const director: Director = Director.getInstance();
     const builder: SquareBuilder = new SquareBuilder();
@@ -19,7 +21,7 @@ export default class MapModel {
     for (let row = 0; row < this.height; row++) {
       for (let column = 0; column < this.width; column++) {
         director.buildCellModel(row, column);
-        this.cells.push(builder.getCellModel());
+        this.cells.addItem(builder.getCellModel());
       }
     }
   }

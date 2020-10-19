@@ -1,6 +1,4 @@
 import React from "react";
-import Director from "../Director";
-import SquareBuilder from "../SquareBuilder";
 import "./Cell.css";
 import CellModel from "./CellModel";
 

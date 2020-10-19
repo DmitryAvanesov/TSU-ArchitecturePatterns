@@ -1,5 +1,5 @@
+import CellModel from "../cell/CellModel";
 import Builder from "./Builder";
-import CellModel from "./cell/CellModel";
 
 export default class SquareBuilder implements Builder {
   private cellModel: CellModel;
@@ -18,7 +18,15 @@ export default class SquareBuilder implements Builder {
   }
 
   public produceType(): void {
-    this.cellModel.type = Math.random() < 0.0001 ? "lake" : "flat";
+    const seed = Math.random();
+    this.cellModel.type =
+      seed < 0.000025
+        ? "mountain"
+        : seed < 0.00005
+        ? "desert"
+        : seed < 0.0001
+        ? "lake"
+        : "flat";
   }
 
   public getCellModel(): CellModel {
