@@ -1,4 +1,5 @@
 import CellModel from "../cell/CellModel";
+import StaticVisitor from "../visitor/StaticVisitor";
 import CellsCollection from "./CellsCollection";
 import Iterator from "./Iterator";
 
@@ -22,6 +23,8 @@ export default class StaticIterator implements Iterator<CellModel> {
 
   public next(): CellModel {
     const item = this.collection.getItems()[this.position];
+    const visitor = new StaticVisitor();
+    item.accept(visitor);
     this.position += this.reverse ? -1 : 1;
     return item;
   }
