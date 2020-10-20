@@ -2,9 +2,13 @@ import CellModel from "../cell/CellModel";
 import Builder from "./Builder";
 
 export default class SquareBuilder implements Builder {
-  private cellModel: CellModel;
+  private cellModel!: CellModel;
 
   constructor() {
+    this.reset();
+  }
+
+  private reset(): void {
     this.cellModel = new CellModel();
     this.cellModel.shape = "square";
   }
@@ -31,8 +35,7 @@ export default class SquareBuilder implements Builder {
 
   public getCellModel(): CellModel {
     const result = this.cellModel;
-    this.cellModel = new CellModel();
-    this.cellModel.shape = "square";
+    this.reset();
     return result;
   }
 }

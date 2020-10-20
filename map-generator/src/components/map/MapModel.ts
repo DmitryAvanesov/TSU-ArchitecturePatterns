@@ -1,7 +1,5 @@
 import Director from "../builder/Director";
 import SquareBuilder from "../builder/SquareBuilder";
-import Cell from "../cell/Cell";
-import CellModel from "../cell/CellModel";
 import CellsCollection from "../iterator/CellsCollection";
 
 export default class MapModel {
@@ -23,6 +21,16 @@ export default class MapModel {
         director.buildCellModel(row, column);
         this.cells.addItem(builder.getCellModel());
       }
+    }
+
+    this.generateLakes();
+  }
+
+  generateLakes(): void {
+    const iterator = this.cells.getIterator();
+
+    while (iterator.valid()) {
+      console.log(iterator.next().type);
     }
   }
 }
